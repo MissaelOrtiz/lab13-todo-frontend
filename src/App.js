@@ -3,14 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams
+  Redirect,
+  // useParams
 } from "react-router-dom";
 import HomePage from './HomePage.js';
 import LoginPage from './LoginPage.js';
 import SignupPage from './SignupPage.js';
 import TodoListPage from "./TodoListPage.js";
 import Header from "./Header.js";
+import './App.css'
 
 // BONUS TOOLS
 const TOKEN = 'TOKEN'
@@ -34,7 +35,7 @@ export default class ParamsExample extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className='App'>
           <Header event={this.handleLogout} />
           <Switch>
             <Route 
@@ -55,7 +56,10 @@ export default class ParamsExample extends Component {
             <Route 
               path="/todos" 
               exact
-              render={(routerProps) => <TodoListPage {...routerProps} />} 
+              render={(routerProps) =>
+                this.state.token
+                  ? <TodoListPage {...routerProps} />
+                  : <Redirect to='/' />} 
             />           
           </Switch>
         </div>
