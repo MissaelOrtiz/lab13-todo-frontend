@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import HomePage from './HomePage.js';
 import LoginPage from './LoginPage.js';
-import SingupPage from './SignupPage.js';
+import SignupPage from './SignupPage.js';
 import TodoListPage from "./TodoListPage.js";
 import Header from "./Header.js";
 
@@ -29,7 +29,22 @@ export default class ParamsExample extends Component {
               path="/" 
               exact
               render={(routerProps) => <HomePage {...routerProps} />} 
-            />          
+            />
+            <Route 
+              path="/signup" 
+              exact
+              render={(routerProps) => <SignupPage {...routerProps} />} 
+            />
+            <Route 
+              path="/login" 
+              exact
+              render={(routerProps) => <LoginPage {...routerProps} />} 
+            />
+            <Route 
+              path="/todos" 
+              exact
+              render={(routerProps) => <TodoListPage {...routerProps} />} 
+            />           
           </Switch>
         </div>
       </Router>
