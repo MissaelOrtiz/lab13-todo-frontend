@@ -28,13 +28,14 @@ export default class ParamsExample extends Component {
   handleLogout = () => {
     this.setState({ token: '' })
     localStorage.setItem(TOKEN, '')
+    this.props.history.push('/')
   }
 
   render() {
     return (
       <Router>
         <div>
-          <Header />
+          <Header event={this.handleLogout} />
           <Switch>
             <Route 
               path="/" 
