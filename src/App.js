@@ -12,13 +12,24 @@ import SignupPage from './SignupPage.js';
 import TodoListPage from "./TodoListPage.js";
 import Header from "./Header.js";
 
-// Params are placeholders in the URL that begin
-// with a colon, like the `:id` param defined in
-// the route in this example. A similar convention
-// is used for matching dynamic segments in other
-// popular web frameworks like Rails and Express.
+// BONUS TOOLS
+const TOKEN = 'TOKEN'
 
 export default class ParamsExample extends Component {
+  state = {
+    token: localStorage.getItem(TOKEN)
+  }
+
+  handleLogin = (userToken) => {
+    this.setState({ token: userToken })
+    localStorage.setItem(TOKEN, userToken)
+  }
+
+  handleLogout = () => {
+    this.setState({ token: '' })
+    localStorage.setItem(TOKEN, '')
+  }
+
   render() {
     return (
       <Router>
