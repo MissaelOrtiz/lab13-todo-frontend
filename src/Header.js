@@ -9,7 +9,7 @@ export default class Header extends Component {
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Signup</Link>
                 <Link to="/todos">Todos</Link>
-                <button onClick={this.props.event}>Logout</button>
+                <button onClick={this.props.event}><Link to="/">Logout</Link></button>
             </div>
         )
     }

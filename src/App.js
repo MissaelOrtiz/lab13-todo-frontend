@@ -29,7 +29,6 @@ export default class ParamsExample extends Component {
   handleLogout = () => {
     this.setState({ token: '' })
     localStorage.setItem(TOKEN, '')
-    this.props.history.push('/')
   }
 
   render() {
@@ -46,12 +45,12 @@ export default class ParamsExample extends Component {
             <Route 
               path="/signup" 
               exact
-              render={(routerProps) => <SignupPage {...routerProps} />} 
+              render={(routerProps) => <SignupPage event={this.handleLogin} {...routerProps} />} 
             />
             <Route 
               path="/login" 
               exact
-              render={(routerProps) => <LoginPage {...routerProps} />} 
+              render={(routerProps) => <LoginPage event={this.handleLogin} {...routerProps} />} 
             />
             <Route 
               path="/todos" 
