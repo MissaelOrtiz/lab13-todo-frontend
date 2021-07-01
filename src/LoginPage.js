@@ -16,11 +16,11 @@ export default class SignupPage extends Component {
     }
 
     handleEmailChange = (e) => {
-        this.setState({ password: e.target.value });
+        this.setState({ email: e.target.value });
     }
 
     handlePasswordChange = (e) => {
-        this.setState({ email: e.target.value });
+        this.setState({ password: e.target.value });
     }
 
     render() {

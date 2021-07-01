@@ -16,7 +16,7 @@ import './App.css'
 // BONUS TOOLS
 const TOKEN = 'TOKEN'
 
-export default class ParamsExample extends Component {
+export default class App extends Component {
   state = {
     token: localStorage.getItem(TOKEN)
   }
@@ -57,7 +57,7 @@ export default class ParamsExample extends Component {
               exact
               render={(routerProps) =>
                 this.state.token
-                  ? <TodoListPage {...routerProps} />
+                  ? <TodoListPage token={this.state.token} {...routerProps} />
                   : <Redirect to='/' />} 
             />           
           </Switch>
